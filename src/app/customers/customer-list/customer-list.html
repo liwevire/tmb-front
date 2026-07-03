@@ -1,6 +1,7 @@
-<p>customer-list works!</p>
-
-<!-- <div class="mat-elevation-z6">
+@if(!dataSource){
+<mat-progress-bar mode="indeterminate"></mat-progress-bar>
+}
+<div class="mat-elevation-z6">
   <table mat-table [dataSource]="dataSource" matSort>
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
@@ -43,4 +44,4 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
   <mat-paginator [pageSize]="50" [pageSizeOptions]="[20, 50, 100, 1000]" showFirstLastButtons></mat-paginator>
-</div> -->
+</div>
