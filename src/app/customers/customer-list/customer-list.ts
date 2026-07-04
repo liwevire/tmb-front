@@ -2,16 +2,17 @@ import { Component, inject, ViewChild } from '@angular/core';
 import { ICustomer } from '../customer';
 import { CustomerService } from '../customer-service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { MatTableModule, MatTableDataSource } from '@angular/material/table';
+import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { RouterLink } from "@angular/router";
 import { DatePipe } from '@angular/common';
 import { MatProgressBar } from '@angular/material/progress-bar';
+import { materialImports } from '../../util/commonImports';
 
 @Component({
   selector: 'app-customer-list',
-  imports: [MatTableModule, MatPaginator, RouterLink, DatePipe, MatSort, MatProgressBar],
+  imports: [RouterLink, DatePipe, MatSort, MatProgressBar, ...materialImports],
   templateUrl: './customer-list.html',
   styleUrl: './customer-list.css',
 })
@@ -45,7 +46,7 @@ export class CustomerList {
         this.customers = customers;
         this.dataSource = new MatTableDataSource<ICustomer>(this.customers);
         this.dataSource.paginator = this.paginator;
-        // this.dataSource.sort = this.sort;
+        this.dataSource.sort = this.sort;
       },
       error: (err) => {
         this._snackBar.open('ERROR!', 'Close', {

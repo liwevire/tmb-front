@@ -23,7 +23,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatGridListModule } from '@angular/material/grid-list';
 
-const modules = [
+export const materialImports = [
   CommonModule,
   MatTableModule,
   MatPaginatorModule,
@@ -50,7 +50,7 @@ const modules = [
 
 @NgModule({
   declarations: [],
-  imports: [...modules],
-  exports: [...modules],
+  imports: [...materialImports],
+  exports: [...materialImports],
 })
 export class AngMatModule {}
