@@ -22,8 +22,10 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 export const materialImports = [
+  MatSidenavModule,
   CommonModule,
   MatTableModule,
   MatPaginatorModule,
