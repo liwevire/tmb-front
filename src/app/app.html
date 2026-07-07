@@ -1,19 +1,50 @@
 <!-- todo: scaffold menu bar mechanism -->
-<mat-drawer-container class="example-container" autosize>
-  <mat-drawer #drawer class="example-sidenav" mode="side">
-    <p>Auto-resizing sidenav</p>
-    @if (showFiller) {
-    <p>Lorem, ipsum dolor sit amet consectetur.</p>
-    }
-    <button (click)="showFiller = !showFiller" matButton="elevated">
-      Toggle extra text
-    </button>
-  </mat-drawer>
+<mat-drawer-container class="menu-container">
+  <mat-drawer #drawer class="menu-sidenav" mode="side" opened="true">
+    <div class="menu-icon">
+      <button matFab (click)="showFiller = !showFiller">
+        <mat-icon>
+          @if(showFiller) {
+          speaker_notes_off
+          } @else {
+          speaker_notes
+          }
+        </mat-icon>
+      </button>
+    </div>
+    <mat-divider></mat-divider>
 
-  <div class="example-sidenav-content">
-    <button type="button" matButton (click)="drawer.toggle()">
+    <div class="menu-icon" routerLink="/loans/open">
+      @if (!showFiller) {
+      <button matFab color="accent">
+        <mat-icon> lock_open</mat-icon>
+      </button>
+      }
+      @else {<button matFab extended color="accent">
+        <mat-icon> lock_open</mat-icon>
+        Loans <br> Open
+      </button>}
+    </div>
+    <mat-divider></mat-divider>
+
+    <div class="menu-icon" routerLink="/loans/closed">
+      @if (!showFiller) {
+        <button matFab color="accent"><mat-icon>lock</mat-icon></button>
+      }
+      @else {<button matFab extended color="accent">
+        <mat-icon>lock</mat-icon>
+        Loans <br> Closed
+      </button>
+      }
+    </div>
+  </mat-drawer>
+  <mat-divider></mat-divider>
+
+  <div class="menu-sidenav-content">
+    <!-- todo: add this button to top bar if available -->
+    <!-- <button type="button" matButton (click)="drawer.toggle()">
       Toggle sidenav
-    </button>
+    </button> -->
     <router-outlet></router-outlet>
   </div>
 

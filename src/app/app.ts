@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { materialImports } from './util/commonImports';
+import { materialImports } from './util/globalImports';
 
 @Component({
   selector: 'app-root',
@@ -11,4 +11,7 @@ import { materialImports } from './util/commonImports';
 export class App {
   protected readonly title = signal('tmb-front');
   showFiller = false;
+  toggleSidenav() {
+    this.showFiller = true;
+  }
 }

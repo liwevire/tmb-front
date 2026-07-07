@@ -8,7 +8,7 @@ import { MatSort } from '@angular/material/sort';
 import { RouterLink } from "@angular/router";
 import { DatePipe } from '@angular/common';
 import { MatProgressBar } from '@angular/material/progress-bar';
-import { materialImports } from '../../util/commonImports';
+import { materialImports } from '../../util/globalImports';
 
 @Component({
   selector: 'app-customer-list',
