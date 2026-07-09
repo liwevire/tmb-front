@@ -1,7 +1,7 @@
 import { inject, Service } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { ICustomer } from './customer';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 
@@ -23,4 +23,30 @@ export class CustomerService {
       // catchError({err:this.handleError})
       ();
   }
+  getCusomterById(id: number): Observable<ICustomer> {
+    return this.http
+      .post<ICustomer>(this.customerByIdUrl, { id: id })
+      .pipe
+      // tap((data) => {
+      //   console.log('customerService.getCusomterById: ' + data);
+      // })
+      // catchError({err:this.handleError})
+      ();
+  }
+  updateCustomer(customer: ICustomer): Observable<ICustomer> {
+    return this.http
+      .put<ICustomer>(this.updateUrl, customer)
+      .pipe
+      // tap((data) => console.log('customerService.updateCustomer: ' + data))
+      ();
+  }
+  deleteCustomer(id: number) {
+    return this.http
+      .delete<ICustomer>(this.deleteUrl + id)
+      .pipe
+      // tap((data) => console.log('customerService.deleteCustomer: ' + data))
+      ();
+  }
+
+  private handleError(err: HttpErrorResponse) {}
 }
