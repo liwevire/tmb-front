@@ -1,3 +1,11 @@
+@if(dataSource.data.length === 0){
+<mat-progress-bar mode="indeterminate"></mat-progress-bar>
+<div class="no-data">
+  <mat-icon>info</mat-icon>
+  <span>No customers found.</span>
+</div>
+}
+
 <mat-chip color="accent" selected>{{ title }}</mat-chip>
 <mat-icon matSuffix>minimize</mat-icon>
 <mat-form-field appearance="outline">
@@ -6,13 +14,6 @@
   <input matInput (keyup)="applyFilter($event)" #input />
 </mat-form-field>
 
-@if(dataSource.data.length === 0){
-  <div class="no-data">
-    <mat-icon>info</mat-icon>
-    <span>No customers found.</span>
-  </div>
-  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-}
 <div class="mat-elevation-z6">
   <table mat-table [dataSource]="dataSource" matSort>
     <ng-container matColumnDef="id">

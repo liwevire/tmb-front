@@ -2,7 +2,7 @@
 <mat-drawer-container class="menu-container">
   <mat-drawer #drawer class="menu-sidenav" mode="side" opened="true">
     <div class="menu-icon">
-      <button matFab (click)="showFiller = !showFiller">
+      <button matFab (click)="showFiller = !showFiller" matTooltip="Show details text" [matTooltipPosition]="'right'">
         <mat-icon>
           @if(showFiller) {
           speaker_notes_off
@@ -16,7 +16,7 @@
 
     <div class="menu-icon" routerLink="/loans/open">
       @if (!showFiller) {
-      <button matFab color="accent">
+      <button matFab matTooltip="Loans Open" [matTooltipPosition]="'right'" color="accent">
         <mat-icon> lock_open</mat-icon>
       </button>
       }
@@ -29,7 +29,7 @@
 
     <div class="menu-icon" routerLink="/loans/closed">
       @if (!showFiller) {
-        <button matFab color="accent"><mat-icon>lock</mat-icon></button>
+        <button matFab matTooltip="Loans Closed" [matTooltipPosition]="'right'" color="accent"><mat-icon>lock</mat-icon></button>
       }
       @else {<button matFab extended color="accent">
         <mat-icon>lock</mat-icon>
@@ -37,8 +37,56 @@
       </button>
       }
     </div>
+    <mat-divider></mat-divider>
+
+    <div class="menu-icon" routerLink="/loans/all">
+      @if (!showFiller) {
+        <button matFab matTooltip="Loans All" [matTooltipPosition]="'right'" color="accent"><mat-icon>email</mat-icon></button>
+      }
+      @else {<button matFab extended color="accent">
+        <mat-icon>email</mat-icon>
+        Loans <br> All
+      </button>
+      }
+    </div>
+    <mat-divider></mat-divider>
+
+    <div class="menu-icon" routerLink="/loan">
+      @if (!showFiller) {
+        <button matFab matTooltip="Loans New" [matTooltipPosition]="'right'" color="accent"><mat-icon>note_add</mat-icon></button>
+      }
+      @else {<button matFab extended color="accent">
+        <mat-icon>note_add</mat-icon>
+        Loan <br> New
+      </button>
+      }
+    </div>
+    <mat-divider></mat-divider>
+
+    <div class="menu-icon" routerLink="/customers">
+      @if (!showFiller) {
+        <button matFab matTooltip="Customers All" [matTooltipPosition]="'right'" color="accent"><mat-icon>people</mat-icon></button>
+      }
+      @else {<button matFab extended color="accent">
+        <mat-icon>people</mat-icon>
+        Customers
+      </button>
+      }
+    </div>
+    <mat-divider></mat-divider>
+
+    <div class="menu-icon" routerLink="/customer">
+      @if (!showFiller) {
+        <button matFab matTooltip="Customer New" [matTooltipPosition]="'right'" color="accent"><mat-icon>person_add</mat-icon></button>
+      }
+      @else {<button matFab extended color="accent">
+        <mat-icon>person_add</mat-icon>
+        Customer <br> New
+      </button>
+      }
+    </div>
+
   </mat-drawer>
-  <mat-divider></mat-divider>
 
   <div class="menu-sidenav-content">
     <!-- todo: add this button to top bar if available -->
